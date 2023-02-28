@@ -1,0 +1,9 @@
+project: pytype
+target: fuzz-analysis
+testsuite:
+    - file://mayhem/testsuite
+
+cmds:
+  - cmd: /src/mayhem/fuzz_analyze.py
+    libfuzzer: true
+    timeout: 15
