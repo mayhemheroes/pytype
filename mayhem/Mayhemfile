@@ -1,0 +1,13 @@
+# Mayhem target: pytype .pyi parser (Atheris/libFuzzer harness).
+# The cmd binary is a PyInstaller onefile ELF bundling Python+atheris (Mayhem edge collection).
+project: pytype
+target: fuzz-analysis
+
+cmds:
+  - cmd: /mayhem/fuzz-analysis
+    libfuzzer: true
+    timeout: 15
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz-analysis/testsuite
